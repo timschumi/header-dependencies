@@ -1,0 +1,145 @@
+digraph may_make_visible_all_symbols {
+    aio_h [label="aio.h"];
+    arpa_inet_h [label="arpa/inet.h"];
+    ctype_h [label="ctype.h"];
+    fcntl_h [label="fcntl.h"];
+    ftw_h [label="ftw.h"];
+    inttypes_h [label="inttypes.h"];
+    langinfo_h [label="langinfo.h"];
+    limits_h [label="limits.h"];
+    math_h [label="math.h"];
+    mqueue_h [label="mqueue.h"];
+    netdb_h [label="netdb.h"];
+    netinet_in_h [label="netinet/in.h"];
+    nl_types_h [label="nl_types.h"];
+    pthread_h [label="pthread.h"];
+    sched_h [label="sched.h"];
+    semaphore_h [label="semaphore.h"];
+    signal_h [label="signal.h"];
+    spawn_h [label="spawn.h"];
+    stdarg_h [label="stdarg.h"];
+    stddef_h [label="stddef.h"];
+    stdio_h [label="stdio.h"];
+    stdlib_h [label="stdlib.h"];
+    string_h [label="string.h"];
+    stropts_h [label="stropts.h"];
+    sys_resource_h [label="sys/resource.h"];
+    sys_select_h [label="sys/select.h"];
+    sys_socket_h [label="sys/socket.h"];
+    sys_stat_h [label="sys/stat.h"];
+    sys_time_h [label="sys/time.h"];
+    sys_uio_h [label="sys/uio.h"];
+    sys_wait_h [label="sys/wait.h"];
+    time_h [label="time.h"];
+    unistd_h [label="unistd.h"];
+    utmpx_h [label="utmpx.h"];
+    wchar_h [label="wchar.h"];
+    wctype_h [label="wctype.h"];
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/aio.h.html
+    aio_h -> fcntl_h;
+    aio_h -> signal_h;
+    aio_h -> time_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/arpa_inet.h.html
+    arpa_inet_h -> netinet_in_h;
+    arpa_inet_h -> inttypes_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/fcntl.h.html
+    fcntl_h -> sys_stat_h;
+    fcntl_h -> unistd_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/ftw.h.html
+    ftw_h -> sys_stat_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/langinfo.h.html
+    langinfo_h -> nl_types_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/mqueue.h.html
+    mqueue_h -> fcntl_h;
+    mqueue_h -> signal_h;
+    mqueue_h -> time_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/netdb.h.html
+    netdb_h -> netinet_in_h;
+    netdb_h -> sys_socket_h;
+    netdb_h -> inttypes_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/netinet_in.h.html
+    netinet_in_h -> inttypes_h;
+    netinet_in_h -> sys_socket_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html
+    pthread_h -> sched_h;
+    pthread_h -> time_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/sched.h.html
+    sched_h -> time_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/semaphore.h.html
+    semaphore_h -> fcntl_h;
+    semaphore_h -> time_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/signal.h.html
+    signal_h -> time_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/spawn.h.html
+    spawn_h -> sched_h;
+    spawn_h -> signal_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/stdio.h.html
+    stdio_h -> stddef_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/stdlib.h.html
+    stdlib_h -> stddef_h;
+    stdlib_h -> limits_h;
+    stdlib_h -> math_h;
+    stdlib_h -> sys_wait_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/string.h.html
+    string_h -> stddef_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/stropts.h.html
+    stropts_h -> unistd_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/sys_resource.h.html
+    sys_resource_h -> sys_time_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/sys_select.h.html
+    sys_select_h -> signal_h;
+    sys_select_h -> time_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/sys_socket.h.html
+    sys_socket_h -> sys_uio_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/sys_time.h.html
+    sys_time_h -> sys_select_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/sys_wait.h.html
+    sys_wait_h -> signal_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/time.h.html
+    time_h -> signal_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/utmpx.h.html
+    utmpx_h -> sys_time_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/wchar.h.html
+    wchar_h -> ctype_h;
+    wchar_h -> string_h;
+    wchar_h -> stdarg_h;
+    wchar_h -> stddef_h;
+    wchar_h -> stdio_h;
+    wchar_h -> stdlib_h;
+    wchar_h -> time_h;
+
+    // https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/wctype.h.html
+    wctype_h -> ctype_h;
+    wctype_h -> stdarg_h;
+    wctype_h -> stddef_h;
+    wctype_h -> stdio_h;
+    wctype_h -> stdlib_h;
+    wctype_h -> string_h;
+    wctype_h -> time_h;
+    wctype_h -> wchar_h;
+}
